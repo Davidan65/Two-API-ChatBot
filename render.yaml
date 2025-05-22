@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: worker
     name: telegram-bot
     env: python
     buildCommand: pip install -r requirements.txt
@@ -12,4 +12,6 @@ services:
       - key: DEEPSEEK_API_KEY
         sync: false
       - key: MIDNIGHT_ROSE_API_KEY
-        sync: false 
+        sync: false
+    healthCheckPath: /health
+    autoDeploy: true 
